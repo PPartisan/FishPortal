@@ -1,0 +1,7 @@
+App should be in two possible states.
+
+1) A Search bar at the top and RecyclerView underneath. The RecyclerView will live-update its results
+based on entries in the search bar.
+
+2) Selecting an item from the search results will launch a new screen that contains more detail
+on the selected item, including an image-pager/interactive toolbar at the top.

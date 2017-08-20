@@ -1,0 +1,17 @@
+Aim to pull data from FishBase APIs and display via two activities.
+
+This occurs in two stages:
+
+1) Display a search bar. Entering text will query the first API to populate a list of text
+search results, eg:
+    http://www.deepspaceweb.com:80/fishbase/api/cname/letter/dwarf%20rasbora
+This returns an `autocr` value, that can be used when an item is selected.
+
+2) When an item is selected, use its `autocr` value to query a separate API:
+    https://fishbase.ropensci.org/comnames?autoctr=20863 - Returns a "Species Code" from "autoctr"
+    https://fishbase.ropensci.org/species/10879/ - Returns more data from Species Code
+This will return more detailed information.
+
+3) For images, explore the possibility of using an image search API (Flickr maybe?)
+    https://www.flickr.com/services/developer/api/
+

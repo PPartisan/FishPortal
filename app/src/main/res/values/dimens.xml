@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Search -->
+    <dimen name="fs_margin_horizontal">16dp</dimen>
+    <dimen name="fs_search_layout_margin_horizontal">16dp</dimen>
+    <dimen name="fs_search_layout_margin_top">16dp</dimen>
+    <dimen name="fs_search_margin_end">2dp</dimen>
+    <dimen name="fs_search_card_elevation">8dp</dimen>
+    <dimen name="fs_input_padding_horizontal">8dp</dimen>
+
+    <!-- Search Row -->
+    <dimen name="rs_height">48dp</dimen>
+    <dimen name="rs_margin_horizontal">16dp</dimen>
+    <dimen name="rs_icon_padding">12dp</dimen>
+
+    <!-- Common -->
+    <dimen name="action_button_size">48dp</dimen>
+
+</resources>

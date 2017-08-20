@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fish Portal</string>
+
+    <!-- Search -->
+    <string name="fs_hint">Search…</string>
+    <string name="fs_search_content_desc">Search</string>
+
+</resources>

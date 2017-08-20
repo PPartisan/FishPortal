@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    arch = '1.0.0-alpha5'
+    constraint = '1.0.2'
+    dagger2 = '2.11'
+    gson = '2.8.1'
+    retrofit = '2.3.0'
+    support = '26.0.1'
+}

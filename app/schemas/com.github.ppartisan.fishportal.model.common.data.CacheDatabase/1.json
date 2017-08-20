@@ -1,0 +1,165 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "89a37a4554f1174c258dc9d6bad71657",
+    "entities": [
+      {
+        "tableName": "detail",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`speciesCode` INTEGER, `genus` TEXT, `species` TEXT, `speciesRefNumber` INTEGER, `commonName` TEXT, `familyCode` INTEGER, `subFamily` TEXT, `genCode` INTEGER, `bodyShape` TEXT, `length` REAL, `dangerous` TEXT, `comments` TEXT, PRIMARY KEY(`speciesCode`), FOREIGN KEY(`speciesCode`) REFERENCES `search_detail_map`(`map_speciesCode`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "speciesCode",
+            "columnName": "speciesCode",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "genus",
+            "columnName": "genus",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "speciesRefNumber",
+            "columnName": "speciesRefNumber",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "commonName",
+            "columnName": "commonName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "familyCode",
+            "columnName": "familyCode",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "subFamily",
+            "columnName": "subFamily",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "genCode",
+            "columnName": "genCode",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "bodyShape",
+            "columnName": "bodyShape",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "length",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "dangerous",
+            "columnName": "dangerous",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "comments",
+            "columnName": "comments",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "speciesCode"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_detail_speciesCode",
+            "unique": false,
+            "columnNames": [
+              "speciesCode"
+            ],
+            "createSql": "CREATE  INDEX `index_detail_speciesCode` ON `${TABLE_NAME}` (`speciesCode`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "search_detail_map",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "speciesCode"
+            ],
+            "referencedColumns": [
+              "map_speciesCode"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "search_detail_map",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`autoCtr` INTEGER, `map_speciesCode` INTEGER, PRIMARY KEY(`autoCtr`))",
+        "fields": [
+          {
+            "fieldPath": "autoCtr",
+            "columnName": "autoCtr",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "speciesCode",
+            "columnName": "map_speciesCode",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "autoCtr"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_search_detail_map_map_speciesCode",
+            "unique": true,
+            "columnNames": [
+              "map_speciesCode"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_search_detail_map_map_speciesCode` ON `${TABLE_NAME}` (`map_speciesCode`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "search",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `name` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"89a37a4554f1174c258dc9d6bad71657\")"
+    ]
+  }
+}
