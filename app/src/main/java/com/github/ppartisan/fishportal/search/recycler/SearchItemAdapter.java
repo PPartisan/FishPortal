@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.github.ppartisan.fishportal.databinding.RowSearchBinding;
 import com.github.ppartisan.fishportal.model.search.SearchItem;
-import com.github.ppartisan.fishportal.search.SearchPresenter;
+import com.github.ppartisan.fishportal.search.fragment.SearchPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

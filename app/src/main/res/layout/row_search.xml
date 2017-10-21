@@ -10,7 +10,7 @@
             type="com.github.ppartisan.fishportal.model.search.SearchItem" />
         <variable
             name="presenter"
-            type="com.github.ppartisan.fishportal.search.SearchPresenter" />
+            type="com.github.ppartisan.fishportal.search.fragment.SearchPresenter" />
     </data>
 
     <android.support.v7.widget.CardView

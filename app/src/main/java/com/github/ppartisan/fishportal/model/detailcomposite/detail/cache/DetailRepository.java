@@ -19,12 +19,9 @@ public class DetailRepository {
     }
 
     public void put(final DetailItem item) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                if(item != null) {
-                    dao.save(item);
-                }
+        executor.execute(() -> {
+            if(item != null) {
+                dao.save(item);
             }
         });
     }

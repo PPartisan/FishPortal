@@ -11,7 +11,7 @@
 
         <fragment
             android:id="@+id/search_fragment"
-            android:name="com.github.ppartisan.fishportal.search.SearchFragment"
+            android:name="com.github.ppartisan.fishportal.search.fragment.SearchFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -2,29 +2,32 @@ package com.github.ppartisan.fishportal.search;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 
 import com.github.ppartisan.fishportal.R;
-import com.github.ppartisan.fishportal.di.activity.BaseActivity;
-import com.github.ppartisan.fishportal.di.activity.HasActivitySubComponentBuilders;
 
-public class SearchActivity extends BaseActivity {
+import javax.inject.Inject;
 
-    private SearchComponent component;
+import dagger.android.AndroidInjection;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
+public class SearchActivity extends AppCompatActivity implements HasSupportFragmentInjector {
+
+    @Inject DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         DataBindingUtil.setContentView(this, R.layout.activity_search);
-        component.inject((SearchFragment)getSupportFragmentManager().findFragmentById(R.id.search_fragment));
     }
 
     @Override
-    protected void injectMembers(HasActivitySubComponentBuilders hasActivitySubComponentBuilders) {
-        component = ((SearchComponent.Builder) hasActivitySubComponentBuilders
-                .getActivityComponentBuilder(SearchActivity.class))
-                .activityModule(new SearchModule(this))
-                .build();
-        component.injectMembers(this);
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return fragmentDispatchingAndroidInjector;
     }
 
 }

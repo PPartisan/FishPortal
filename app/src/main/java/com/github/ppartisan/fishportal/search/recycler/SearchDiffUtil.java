@@ -15,8 +15,8 @@ class SearchDiffUtil extends Callback {
     @NonNull private final List<SearchItem> oldItems;
 
     SearchDiffUtil(@Nullable List<SearchItem> newItems, @Nullable List<SearchItem> oldItems) {
-        this.newItems = newItems == null ? new ArrayList<SearchItem>() : newItems;
-        this.oldItems = oldItems == null ? new ArrayList<SearchItem>() : oldItems;
+        this.newItems = newItems == null ? new ArrayList<>() : newItems;
+        this.oldItems = oldItems == null ? new ArrayList<>() : oldItems;
     }
 
     @Override

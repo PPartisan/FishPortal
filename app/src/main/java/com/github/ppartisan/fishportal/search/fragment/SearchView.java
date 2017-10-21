@@ -1,4 +1,4 @@
-package com.github.ppartisan.fishportal.search;
+package com.github.ppartisan.fishportal.search.fragment;
 
 import com.github.ppartisan.fishportal.model.search.SearchItem;
 

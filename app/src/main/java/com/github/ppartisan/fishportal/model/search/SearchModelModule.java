@@ -14,7 +14,7 @@ import dagger.Provides;
         DataModule.class,
         SearchWebModule.class
 })
-public abstract class SearchModule {
+public abstract class SearchModelModule {
     @Provides @Singleton static SearchDao cacheDao(CacheDatabase cacheDatabase) {
         return cacheDatabase.cacheDao();
     }

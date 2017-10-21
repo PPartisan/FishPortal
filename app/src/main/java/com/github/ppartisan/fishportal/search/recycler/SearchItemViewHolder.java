@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.github.ppartisan.fishportal.databinding.RowSearchBinding;
 import com.github.ppartisan.fishportal.model.search.SearchItem;
-import com.github.ppartisan.fishportal.search.SearchPresenter;
+import com.github.ppartisan.fishportal.search.fragment.SearchPresenter;
 
 class SearchItemViewHolder extends RecyclerView.ViewHolder {
 

@@ -9,15 +9,13 @@ import com.github.ppartisan.fishportal.model.detailcomposite.map.SearchDetailMap
 import com.google.gson.annotations.SerializedName;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
-import static android.arch.persistence.room.ForeignKey.NO_ACTION;
 
 @Entity(tableName = "detail",
         foreignKeys = @ForeignKey(
                 entity = SearchDetailMapItem.class,
                 parentColumns = "map_speciesCode",
                 childColumns = "speciesCode",
-                onDelete = CASCADE,
-                onUpdate = NO_ACTION
+                onDelete = CASCADE
         ),
         indices = @Index(value = "speciesCode"))
 public class DetailItem {

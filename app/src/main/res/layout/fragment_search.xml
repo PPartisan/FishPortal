@@ -6,7 +6,7 @@
     <data>
         <variable
             name="presenter"
-            type="com.github.ppartisan.fishportal.search.SearchPresenter" />
+            type="com.github.ppartisan.fishportal.search.fragment.SearchPresenter" />
         <variable name="searchTerm" type="String" />
     </data>
 

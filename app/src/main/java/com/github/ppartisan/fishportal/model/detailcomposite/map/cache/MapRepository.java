@@ -19,12 +19,9 @@ public class MapRepository {
     }
 
     public void put(final SearchDetailMapItem item) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                if(item != null) {
-                    dao.save(item);
-                }
+        executor.execute(() -> {
+            if(item != null) {
+                dao.save(item);
             }
         });
     }

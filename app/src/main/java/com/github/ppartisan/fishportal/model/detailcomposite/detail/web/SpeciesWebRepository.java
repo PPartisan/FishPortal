@@ -43,6 +43,7 @@ public class SpeciesWebRepository {
                             @NonNull Call<DetailItem> call,
                             @NonNull Throwable t
                     ) {
+                        //todo Handle failures
                     }
                 });
     }

@@ -8,7 +8,5 @@ import com.github.ppartisan.fishportal.model.search.SearchItem;
 import java.util.List;
 
 public class SearchItemViewModel extends ViewModel {
-
     public final MutableLiveData<List<SearchItem>> items = new MutableLiveData<>();
-
 }

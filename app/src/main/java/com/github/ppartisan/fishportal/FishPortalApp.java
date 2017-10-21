@@ -2,37 +2,28 @@ package com.github.ppartisan.fishportal;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 
-import com.github.ppartisan.fishportal.di.activity.ActivityComponentBuilder;
-import com.github.ppartisan.fishportal.di.activity.HasActivitySubComponentBuilders;
-
-import java.util.Map;
+import com.github.ppartisan.fishportal.di.DaggerApplicationComponent;
 
 import javax.inject.Inject;
 
-public class FishPortalApp extends Application implements HasActivitySubComponentBuilders {
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 
-    @Inject Map<Class<? extends Activity>, ActivityComponentBuilder> activityComponentBuilders;
+public class FishPortalApp extends Application implements HasActivityInjector {
 
-    private FishPortalAppComponent component;
-
-    public static HasActivitySubComponentBuilders get(Context context) {
-        return ((HasActivitySubComponentBuilders) context.getApplicationContext());
-    }
+    @Inject DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        component = DaggerFishPortalAppComponent.builder()
-                .fishPortalAppModule(new FishPortalAppModule(this))
-                .build();
-        component.inject(this);
+        DaggerApplicationComponent.builder().application(this).build().inject(this);
     }
 
     @Override
-    public ActivityComponentBuilder getActivityComponentBuilder(Class<? extends FragmentActivity> aClass) {
-        return activityComponentBuilders.get(aClass);
+    public AndroidInjector<Activity> activityInjector() {
+        return activityDispatchingAndroidInjector;
     }
+
 }

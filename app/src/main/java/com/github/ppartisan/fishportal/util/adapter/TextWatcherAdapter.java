@@ -7,16 +7,26 @@ import android.util.Log;
 import static com.github.ppartisan.fishportal.BuildConfig.DEBUG;
 import static java.lang.String.format;
 
-public class TextWatcherAdapter implements TextWatcher {
+public abstract class TextWatcherAdapter implements TextWatcher {
 
-    private static final String TAG = TextWatcherAdapter.class.getSimpleName();
+    private static final String DEFAULT_TAG = TextWatcherAdapter.class.getSimpleName();
+
+    private final String tag;
+
+    protected TextWatcherAdapter() {
+        this(DEFAULT_TAG);
+    }
+
+    protected TextWatcherAdapter(String tag) {
+        this.tag = tag;
+    }
 
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
         if(DEBUG) {
-            Log.i(TAG, format(
+            Log.i(tag, format(
                     "%s::beforeTextChanged - CharSequence '%s', start '%d', count '%d', after '%d'",
-                    TAG, charSequence, i, i1, i2)
+                    tag, charSequence, i, i1, i2)
             );
         }
     }
@@ -24,9 +34,9 @@ public class TextWatcherAdapter implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
         if(DEBUG) {
-            Log.i(TAG, format(
+            Log.i(tag, format(
                     "%s::onTextChanged - CharSequence '%s', start '%d', before '%d', count '%d'",
-                    TAG, charSequence, i, i1, i2)
+                    tag, charSequence, i, i1, i2)
             );
         }
     }
@@ -34,7 +44,7 @@ public class TextWatcherAdapter implements TextWatcher {
     @Override
     public void afterTextChanged(Editable editable) {
         if(DEBUG) {
-            Log.i(TAG, format("%s::afterTextChanged - Editable '%s'", TAG, editable));
+            Log.i(tag, format("%s::afterTextChanged - Editable '%s'", tag, editable));
         }
     }
 

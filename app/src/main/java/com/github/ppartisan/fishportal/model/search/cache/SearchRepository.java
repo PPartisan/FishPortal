@@ -27,21 +27,13 @@ public class SearchRepository {
     }
 
     public void load(final String commonName, @NonNull final SearchRepositoryListener listener) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                listener.onComplete(dao.load(commonName));
-            }
-        });
+        executor.execute(() -> listener.onComplete(dao.load(commonName)));
     }
 
     public void put(final List<SearchItem> items) {
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                if(!isEmpty(items)) {
-                    dao.save(items);
-                }
+        executor.execute(() -> {
+            if(!isEmpty(items)) {
+                dao.save(items);
             }
         });
     }
